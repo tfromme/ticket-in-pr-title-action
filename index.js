@@ -28,7 +28,7 @@ async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
 }
 
 async function setAnnotation(token, context, errorMessage) {
-  const octokit = github.getOktokit(token);
+  const octokit = github.getOctokit(token);
   const annotation = {title: "Missing Ticket in Title"};
   const checkRunId = await createCheck(
     octokit, context.repo.owner, context.repo.repo, context.payload.pull_request.head.sha
