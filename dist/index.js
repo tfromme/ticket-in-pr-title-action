@@ -8884,7 +8884,7 @@ async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
     output: {
       title: 'Check if Ticket in PR Title',
       summary: errorMessage,
-      annotations: {title: 'Missing Ticket in Title'},
+      annotations: [{title: 'Missing Ticket in Title'}],
     },
   });
 }
