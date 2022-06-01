@@ -6,7 +6,7 @@ Github Action to Check if a JIRA Ticket is mentioned in the PR Title
 
   fail - Whether to fail (default) or just warn
 
-  pr-title - Title of the PR (default ${{ github.event.pull_request.title }})
+  token - Token to Auth to Github with (default ${{ secrets.GITHUB_TOKEN }})
 
 ## To Build
 You must have ncc installed `npm i -g @vercel/ncc`

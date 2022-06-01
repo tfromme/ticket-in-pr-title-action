@@ -8,10 +8,10 @@ inputs:
     description: 'Whether to fail (default) or just warn'
     required: false
     default: true
-  pr-title:
-    description: 'Title of the PR'
+  token:
+    description: 'Github Token'
     required: false
-    default: ${{ github.event.pull_request.title }}
+    default: ${{ secrets.GITHUB_TOKEN }}
 runs:
   using: 'node16'
   main: 'dist/index.js'
