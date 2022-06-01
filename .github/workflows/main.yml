@@ -1,0 +1,13 @@
+name: Test Action
+
+on: pull_request
+
+jobs:
+  ticket-in-title:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test if CODE in PR title
+      uses: ./
+      with:
+        ticket-prefix: CODE
