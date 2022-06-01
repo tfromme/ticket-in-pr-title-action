@@ -8890,7 +8890,7 @@ async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
       title: 'Check if Ticket in PR Title',
       summary: 'There is 1 warning.',
       annotations: [{
-        path: files[0].filename,
+        path: files.data[0].filename,
         start_line: 1,
         end_line: 1,
         annotation_level: 'warning',
