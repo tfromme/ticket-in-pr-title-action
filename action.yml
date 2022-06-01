@@ -1,5 +1,8 @@
 name: 'Ticket in PR Title'
 description: 'Github Action to Check if a JIRA Ticket is mentioned in the PR Title'
+branding:
+  icon: 'alert-circle'
+  color: 'blue'
 inputs:
   token:
     description: 'Github Token'
