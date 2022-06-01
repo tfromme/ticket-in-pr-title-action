@@ -8875,11 +8875,9 @@ async function createCheck(octokit, owner, repo, ref) {
 }
 
 async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
-  console.log(owner, repo, github.context.payload.pull_request.number);
   const files = await octokit.rest.pulls.listFiles({
     owner, repo, pull_number: github.context.payload.pull_request.number,
   });
-  console.log(files);
   await octokit.rest.checks.update({
     owner,
     repo,
@@ -8938,7 +8936,7 @@ async function runAction({ token, ticketPrefix, fail }) {
 function parseInputs() {
   return {
     token: core.getInput('token'),
-    prTitle: core.getInput('pr-title'),
+    ticketPrefix: core.getInput('ticket-prefix'),
     fail: core.getBooleanInput('fail'),
   }
 }

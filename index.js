@@ -74,7 +74,7 @@ async function runAction({ token, ticketPrefix, fail }) {
 function parseInputs() {
   return {
     token: core.getInput('token'),
-    prTitle: core.getInput('pr-title'),
+    ticketPrefix: core.getInput('ticket-prefix'),
     fail: core.getBooleanInput('fail'),
   }
 }
