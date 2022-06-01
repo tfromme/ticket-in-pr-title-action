@@ -13,9 +13,11 @@ async function createCheck(octokit, owner, repo, ref) {
 }
 
 async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
+  console.log(owner, repo, github.context.payload.pull_request.number);
   const files = await octokit.rest.pulls.listFiles({
     owner, repo, pull_number: github.context.payload.pull_request.number,
   });
+  console.log(files);
   await octokit.rest.checks.update({
     owner,
     repo,
