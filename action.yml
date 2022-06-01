@@ -1,6 +1,9 @@
 name: 'Ticket in PR Title'
 description: 'Github Action to Check if a JIRA Ticket is mentioned in the PR Title'
 inputs:
+  token:
+    description: 'Github Token'
+    required: true
   ticket-prefix:
     description: 'Ticket Prefix to search for'
     required: true
@@ -8,10 +11,6 @@ inputs:
     description: 'Whether to fail (default) or just warn'
     required: false
     default: true
-  token:
-    description: 'Github Token'
-    required: false
-    default: ${{ secrets.GITHUB_TOKEN }}
 runs:
   using: 'node16'
   main: 'dist/index.js'
