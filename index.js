@@ -13,6 +13,9 @@ async function createCheck(octokit, owner, repo, ref) {
 }
 
 async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
+  const files = await octokit.rest.pulls.listFiles({
+    owner, repo, pull_number: github.context.payload.pull_request.number,
+  });
   await octokit.rest.checks.update({
     owner,
     repo,
@@ -21,8 +24,15 @@ async function updateCheck(octokit, owner, repo, checkRunId, errorMessage) {
     conclusion: 'neutral',
     output: {
       title: 'Check if Ticket in PR Title',
-      summary: errorMessage,
-      annotations: [{title: 'Missing Ticket in Title'}],
+      summary: 'There is 1 warning.',
+      annotations: [{
+        path: files[0].filename,
+        start_line: 1,
+        end_line: 1,
+        annotation_level: 'warning',
+        title: 'Missing Ticket in Title',
+        message: errorMessage,
+      }],
     },
   });
 }
