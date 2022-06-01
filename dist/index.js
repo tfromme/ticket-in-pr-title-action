@@ -2078,7 +2078,7 @@ async function runAction({ ticketPrefix, prTitle, fail }) {
     if (fail) {
       core.setFailed(errorMessage);
     } else {
-      core.warning(errorMessage);
+      core.warning(errorMessage, {title: "Missing Ticket in Title"});
     }
   }
 }
