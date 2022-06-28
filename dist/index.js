@@ -8917,7 +8917,7 @@ async function runAction({ token, ticketPrefix, fail }) {
   }
   const prTitle = pullRequest.title;
 
-  const re = new RegExp(`${ticketPrefix}-[1-9][0-9]*`);
+  const re = new RegExp(`${ticketPrefix}[- ][1-9][0-9]*`, 'i');
 
   if (!re.test(prTitle)) {
     const errorMessage = `No Tickets matching ${ticketPrefix} found in PR Title.`;
